@@ -52,7 +52,7 @@ public class User {
     @Column(name = "profile_img")
     private String profileImg;  // http://localhost:8080/프로필이미지.jpg 이런식으로 저장될 예정
 
-
+    @Column
     private String favoriteCity;
     private String favoriteTime;
     private String myTeam;
