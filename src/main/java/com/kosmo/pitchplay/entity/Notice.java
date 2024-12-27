@@ -14,7 +14,7 @@ import lombok.Setter;
                 @Index(name = "idx_notice_type", columnList = "notice_type") // notice_type에 인덱스 추가
         })
 
-public class NoticeEntity {
+public class Notice {
 
     /**
      * 공지사항 엔티티 클래스
