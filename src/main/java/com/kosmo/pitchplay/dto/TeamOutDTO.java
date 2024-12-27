@@ -1,5 +1,6 @@
 package com.kosmo.pitchplay.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,6 +13,7 @@ import java.util.List;
 public class TeamOutDTO {
 
     private String teamCode;
+    @NotBlank(message = "팀 이름은 반드시 입력해야 합니다.")
     private String teamName;
     private String userUid;
     private String teamLevel;

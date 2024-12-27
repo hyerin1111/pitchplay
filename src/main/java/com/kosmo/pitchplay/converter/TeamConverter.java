@@ -28,8 +28,15 @@ public class TeamConverter {
                 .build();
     }
 
+
+
+
     // Team에서 teamOutDTO로 변환
     public TeamOutDTO toDTO(Team team){
+
+        // teamMemberCount는 teamMember.size()로 계산
+        Integer teamMemberCount = team.getTeamMember() != null ? team.getTeamMember().size() : 0;
+
         return TeamOutDTO.builder()
                 .teamCode(team.getTeamCode())
                 .teamName(team.getTeamName())
@@ -40,7 +47,7 @@ public class TeamConverter {
                 .teamPlayTime(team.getTeamPlayTime())
                 .teamImageUrl(team.getTeamImageUrl())
                 .teamMember(team.getTeamMember())
-                .teamMemberCount(team.getTeamMemberCount())
+                .teamMemberCount(teamMemberCount)
                 .teamIntroduce(team.getTeamIntroduce())
                 .teamByAge(team.getTeamByAge())
                 .stadiumName(team.getStadiumName())
