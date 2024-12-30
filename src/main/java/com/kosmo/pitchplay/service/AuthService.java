@@ -10,12 +10,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.kosmo.pitchplay.exception.CustomExceptions.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 public class AuthService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final EmailService emailService;
+
+    private final Map<String, Integer> verificationCodes = new HashMap<>(); // 이메일 인증번호 저장
 
     // 로그인
     public ResponseEntity<String> login(String userId, String password, HttpSession session) {
@@ -34,4 +40,48 @@ public class AuthService {
 
         return ResponseEntity.ok("로그인에 성공하셨습니다.");
     }
+
+    // 로그아웃
+    public ResponseEntity<String> logout(HttpSession session) {
+        session.invalidate(); // 세션 무효화
+        return ResponseEntity.ok("로그아웃 되었습니다.");
+    }
+
+    // 이메일인증
+    public ResponseEntity<String> sendVerificationCode(String name, String email){
+        // 이름과 이메일로 사용자 찾기
+        User user = userRepository.findByNameAndEmail(name, email)
+                .orElseThrow(() -> new UserNotFoundException());
+
+        // 인증번호 발송
+        Integer verificationCode = emailService.sendMail(email);  // 이메일로 인증번호 발송
+
+        // 인증번호 저장
+        verificationCodes.put(email, verificationCode);
+
+        return ResponseEntity.ok("인증번호가 이메일로 발송되었습니다.");
+    }
+
+    // 인증번호 확인 후 아이디 반환
+    public ResponseEntity<String> findUserId(String name, String email, Integer verificationCode) {
+        // 이메일로 저장된 인증번호 검증
+        Integer storedCode = verificationCodes.get(email);
+        if (storedCode == null || !storedCode.equals(verificationCode)) {
+            throw new InvalidException("인증번호가 일치하지 않습니다.");
+        }
+
+        // 이름과 이메일로 사용자 조회
+        User user = userRepository.findByNameAndEmail(name, email)
+                .orElseThrow(() -> new UserNotFoundException());
+
+        // 인증번호가 맞으면 아이디 반환
+        return ResponseEntity.ok("아이디는 " + user.getUserId() + "입니다.");
+    }
+
+    // 비밀번호찾기
+
+    // 비밀번호인증
+
+    // 비밀번호재설정
+
 }
