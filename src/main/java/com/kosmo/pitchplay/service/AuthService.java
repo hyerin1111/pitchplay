@@ -47,11 +47,17 @@ public class AuthService {
         return ResponseEntity.ok("로그아웃 되었습니다.");
     }
 
-    // 이메일인증
-    public ResponseEntity<String> sendVerificationCode(String name, String email) {
-        // 이름과 이메일로 사용자 찾기
-        User user = userRepository.findByNameAndEmail(name, email)
-                .orElseThrow(() -> new UserNotFoundException());
+    // 이메일 인증
+    public ResponseEntity<String> sendVerificationCode(String email, String name, String userId) {
+        if (name != null && !name.isEmpty()) {
+            // 이름과 이메일로 사용자 찾기 (아이디 찾기 시)
+            User user = userRepository.findByNameAndEmail(name, email)
+                    .orElseThrow(() -> new UserNotFoundException());
+        } else if (userId != null && !userId.isEmpty()) {
+            // 이름, 아이디, 이메일로 사용자 찾기 (비밀번호 찾기 시)
+            User user = userRepository.findByNameAndUserIdAndEmail(name, userId, email)
+                    .orElseThrow(() -> new UserNotFoundException());
+        }
 
         // 인증번호 발송
         Integer verificationCode = emailService.sendMail(email);  // 이메일로 인증번호 발송
@@ -61,6 +67,7 @@ public class AuthService {
 
         return ResponseEntity.ok("인증번호가 이메일로 발송되었습니다.");
     }
+
 
     // 인증번호 확인 후 아이디 반환
     public ResponseEntity<String> findUserId(String name, String email, Integer verificationCode) {
@@ -78,30 +85,16 @@ public class AuthService {
         return ResponseEntity.ok("아이디는 " + user.getUserId() + "입니다.");
     }
 
-    // 비밀번호 찾기
-    public ResponseEntity<String> findPassword(String name, String userId, String email) {
-        // 이름, 아이디, 이메일로 사용자 조회
-        User user = userRepository.findByNameAndUserIdAndEmail(name, userId, email)
-                .orElseThrow(() -> new UserNotFoundException());
-
-        // 인증번호 발송
-        Integer verificationCode = emailService.sendMail(email);  // 이메일로 인증번호 발송
-
-        // 인증번호 저장
-        verificationCodes.put(email, verificationCode);
-
-        return ResponseEntity.ok("인증번호가 이메일로 발송되었습니다.");
-    }
 
     // 비밀번호 인증
-    public ResponseEntity<String> verifyPasswordCode(String email, Integer verificationCode) {
+    public ResponseEntity<String> verifyCode(String email, Integer verificationCode) {
         // 이메일로 저장된 인증번호 검증
         Integer storedCode = verificationCodes.get(email);
         if (storedCode == null || !storedCode.equals(verificationCode)) {
             throw new InvalidException("인증번호가 일치하지 않습니다.");
         }
 
-        return ResponseEntity.ok("인증번호가 확인되었습니다. 새로운 비밀번호를 설정해주세요.");
+        return ResponseEntity.ok("인증번호가 확인되었습니다.");
     }
 
     // 비밀번호 재설정

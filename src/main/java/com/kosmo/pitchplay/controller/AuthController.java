@@ -30,42 +30,49 @@ public class AuthController {
         return authService.logout(session);
     }
 
-    // 이메일 인증번호 발송
-    @PostMapping("/send-verification-code")
-    public ResponseEntity<String> sendVerificationCode(@RequestBody Map<String, String> requestBody) {
-        String name = requestBody.get("name");
+    // 이메일 인증번호 발송(회원가입 시에)
+    @PostMapping("/send-email")
+    public ResponseEntity<String> sendRegisterVerificationCode(@RequestBody Map<String, String> requestBody) {
         String email = requestBody.get("email");
 
-        return authService.sendVerificationCode(name, email);
+        return authService.sendVerificationCode(email, null, null);
+    }
+
+    // 아이디 인증번호 발송
+    @PostMapping("/verify-id-code")
+    public ResponseEntity<String> sendVerificationCode(@RequestBody Map<String, String> requestBody) {
+        String email = requestBody.get("email");
+        String name = requestBody.get("name");
+        return authService.sendVerificationCode(email, name, null);
+    }
+
+    // 비밀번호 찾기 (인증번호 발송)
+    @PostMapping("/verify-password-code")
+    public ResponseEntity<String> findPassword(@RequestBody Map<String, String> requestBody) {
+        String email = (String) requestBody.get("email");
+        String name = (String) requestBody.get("name");
+        String userId = (String) requestBody.get("userId");
+
+        return authService.sendVerificationCode(email, name, userId);
     }
 
     // 아이디 인증번호 확인 및 아이디 반환
     @PostMapping("/find-user-id")
     public ResponseEntity<String> findUserId(@RequestBody Map<String, Object> requestBody) {
-        String name = (String) requestBody.get("name");
         String email = (String) requestBody.get("email");
+        String name = (String) requestBody.get("name");
         Integer verificationCode = (Integer) requestBody.get("verificationCode");
 
         return authService.findUserId(name, email, verificationCode);
     }
 
-    // 비밀번호 찾기 (인증번호 발송)
-    @PostMapping("/find-password")
-    public ResponseEntity<String> findPassword(@RequestBody Map<String, String> requestBody) {
-        String name = (String) requestBody.get("name");
-        String userId = (String) requestBody.get("userId");
-        String email = (String) requestBody.get("email");
-
-        return authService.findPassword(name, userId, email);
-    }
-
-    // 비밀번호 인증번호 확인
-    @PostMapping("/verify-password-code")
-    public ResponseEntity<String> verifyPasswordCode(@RequestBody Map<String, Object> requestBody) {
+    // 인증번호 확인 (회원가입 시 인증번호 & 비밀번호 재설정 시 인증번호)
+    @PostMapping("/verify-code")
+    public ResponseEntity<String> verifyCode(@RequestBody Map<String, Object> requestBody) {
         String email = (String) requestBody.get("email");
         Integer verificationCode = (Integer) requestBody.get("verificationCode");
 
-        return authService.verifyPasswordCode(email, verificationCode);
+        return authService.verifyCode(email, verificationCode);
     }
 
     // 비밀번호 재설정
