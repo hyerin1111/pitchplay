@@ -69,5 +69,11 @@ public class AdminController {
         UserOutDTO user = userService.getUserByNickname(nickname);
         return ResponseEntity.ok(user);
     }
+    
+    
+    
+    //공지사항 글쓰기  --내일할게요
+    
+    //자주묻는 질문 글쓰기  --내일할게요..
 
 }
