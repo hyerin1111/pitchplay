@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
         indexes = {
                 @Index(name="idx_user_number", columnList = "user_number"),
                 @Index(name="idx_email", columnList = "email"),
-                @Index(name="idx_id", columnList = "id"),
+                @Index(name="idx_user_id", columnList = "user_id"),
                 @Index(name="idx_nickname", columnList = "nickname"),
                 @Index(name="idx_join_date", columnList = "join_date")
         })
@@ -45,8 +45,8 @@ public class User {
     @Column(name = "email", nullable = false, updatable = false, unique = true, length = 100)
     private String email; // 이메일
 
-    @Column(name = "id", nullable = false, updatable = false, unique = true, length = 15)
-    private String id; // 아이디
+    @Column(name = "user_id", nullable = false, updatable = false, unique = true, length = 15)
+    private String userId; // 아이디
 
     @Column(name = "nickname", unique = true, updatable = false, length = 20)
     private String nickname; // 닉네임
@@ -83,21 +83,21 @@ public class User {
     @Column(name = "account_num")
     private String accountNum; // 은행계좌번호
 
-    @Column(name = "profile_public", nullable = false)
-    private Boolean profilePublic = true; // 프로필 공개설정 (기본값 true)
+    @Column(name = "profile_public")
+    private Boolean profilePublic; // 프로필 공개설정
 
-    @Column(name = "email_notification", nullable = false)
-    private Boolean emailNotification = false;  // 이메일 알림설정(기본값 false)
+    @Column(name = "email_notification")
+    private Boolean emailNotification;  // 이메일 알림설정
 
-    @Column(name = "sns_notification", nullable = false)
-    private Boolean snsNotification = false;  // SNS 알림설정 (기본값 false)
+    @Column(name = "sns_notification")
+    private Boolean snsNotification;  // SNS 알림설정
 
     @Column(name = "join_date", nullable = false)
-    private LocalDateTime joinDate = LocalDateTime.now(); // 가입날짜 (기본값 현재시간)
+    private LocalDateTime joinDate; // 가입날짜
 
-    @Column(name = "is_deleted", nullable = false)
+    @Column(name = "is_deleted")
     private Boolean isDeleted;  // 탈퇴여부
 
     @Column(name = "delete_date")
-    private LocalDateTime deleteDate = null;  // 탈퇴 날짜
+    private LocalDateTime deleteDate;  // 탈퇴 날짜
 }

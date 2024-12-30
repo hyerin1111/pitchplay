@@ -32,16 +32,29 @@ public class UserService {
     // 회원가입 (Create)   ** 이메일 중복검사 및 인증번호는 따로 authService 생성예정
     @Transactional
     public void registerUser(UserInDTO userInDTO) {
-        log.info("회원가입 요청: {}", userInDTO);
 
         // 이메일 중복 체크
         if (userRepository.existsByEmail(userInDTO.getEmail())) {
-            throw new DuplicateEmailException("이메일이 이미 존재합니다.");
+            throw new DuplicateException("이메일이 이미 존재합니다.");
+        }
+
+        // 아이디 중복 체크
+        if (userRepository.existsByUserId(userInDTO.getUserId())) {
+            throw new DuplicateException("아이디가 이미 존재합니다.");
+        }
+
+        // 닉네임 중복 체크
+        if (userRepository.existsByNickname(userInDTO.getNickname())) {
+            throw new DuplicateException("닉네임이 이미 존재합니다.");
+        }
+
+        // 휴대폰 번호 중복 체크
+        if (userRepository.existsByPhone(userInDTO.getPhone())) {
+            throw new DuplicateException("휴대폰 번호가 이미 존재합니다.");
         }
 
         // 비밀번호 암호화
         String encryptedPassword = passwordEncoder.encode(userInDTO.getPassword());
-        userInDTO.setPassword(encryptedPassword);
 
         // userNumber와 joinDate 설정
         Integer userNumber = generateUserNumber();
@@ -50,10 +63,11 @@ public class UserService {
         // DTO에서 entity로 변환
         User user = userConverter.toEntity(userInDTO);
 
-        // userNumber와 joinDate 설정
+        // 암호화된 비밀번호와 기타 필드들 설정
         user = user.toBuilder()
-                .userNumber(userNumber)
-                .joinDate(joinDate)
+                .password(encryptedPassword)  // 암호화된 비밀번호 설정
+                .userNumber(userNumber)       // userNumber 설정
+                .joinDate(joinDate)           // joinDate 설정
                 .build();
 
         //DB에 저장
@@ -104,8 +118,8 @@ public class UserService {
     }
 
     // 유저ID (유저가 지정한 ID)
-    public UserOutDTO getUserById(String id) {
-        Optional<User> user = userRepository.findById(id);
+    public UserOutDTO getUserByUserId(String userId) {
+        Optional<User> user = userRepository.findByUserId(userId);
         return userConverter.toDTO(user.orElseThrow(() -> new UserNotFoundException()));
     }
 

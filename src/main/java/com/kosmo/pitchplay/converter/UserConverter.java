@@ -16,7 +16,7 @@ public class UserConverter {
                 .birthday(userInDTO.getBirthday())
                 .phone(userInDTO.getPhone())
                 .email(userInDTO.getEmail())
-                .id(userInDTO.getId())
+                .userId(userInDTO.getUserId())
                 .nickname(userInDTO.getNickname())
                 .profileImg(userInDTO.getProfileImg())
                 .favoriteCity(userInDTO.getFavoriteCity())
@@ -24,9 +24,10 @@ public class UserConverter {
                 .myDescription(userInDTO.getMyDescription())
                 .account(userInDTO.getAccount())
                 .accountNum(userInDTO.getAccountNum())
-                .profilePublic(userInDTO.getProfilePublic())
-                .emailNotification(userInDTO.getEmailNotification())
-                .snsNotification(userInDTO.getSnsNotification())
+                .profilePublic(userInDTO.getProfilePublic() != null ? userInDTO.getProfilePublic() : true)
+                .emailNotification(userInDTO.getEmailNotification() != null ? userInDTO.getEmailNotification() : false)
+                .snsNotification(userInDTO.getSnsNotification() != null ? userInDTO.getSnsNotification() : false)
+                .isDeleted(false)
                 .build();
     }
 
@@ -37,7 +38,7 @@ public class UserConverter {
                 .birthday(user.getBirthday())
                 .phone(user.getPhone())
                 .email(user.getEmail())
-                .id(user.getId())
+                .userId(user.getUserId())
                 .nickname(user.getNickname())
                 .profileImg(user.getProfileImg())
                 .favoriteCity(user.getFavoriteCity())

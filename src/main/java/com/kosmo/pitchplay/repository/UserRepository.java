@@ -16,11 +16,14 @@ public interface UserRepository extends JpaRepository<User, String> {
     Optional<User> findByUserNumber(Integer userNumber);
     Optional<User> findByEmail(String email);
     Optional<User> findByUserUid(String userUid);
-    Optional<User> findById(String id);
+    Optional<User> findByUserId(String userId);
     Optional<User> findByNickname(String nickname);
     Page<User> findByIsDeleted(Boolean isDeleted, Pageable pageable);
-    Boolean existsByEmail(String email);
-    Boolean existsByUserNumber(Integer userNumber);
+    boolean  existsByUserNumber(Integer userNumber);
+    boolean existsByEmail(String email);
+    boolean existsByUserId(String userId);
+    boolean existsByNickname(String nickname);
+    boolean existsByPhone(String phone);
 
     @Query("SELECT u FROM User u WHERE FUNCTION('YEAR', u.joinDate) = :year AND u.isDeleted = :isDeleted")
     Page<User> findByYearAndIsDeleted(@Param("year") Integer year, @Param("isDeleted") Boolean isDeleted, Pageable pageable);

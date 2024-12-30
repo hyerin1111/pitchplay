@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 // 모든 컨트롤러에서 발생하는 예외를 한 곳에서 처리 (controller에서 try catch문 사용 없이 해당하는 HTTP 상태에 따른 응답 반환함)
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    // 이메일 중복 예외 처리
-    @ExceptionHandler(CustomExceptions.DuplicateEmailException.class)
-    public ResponseEntity<String> handleDuplicateEmailException(CustomExceptions.DuplicateEmailException e) {
+    // 중복 예외 처리
+    @ExceptionHandler(CustomExceptions.DuplicateException.class)
+    public ResponseEntity<String> handleDuplicateEmailException(CustomExceptions.DuplicateException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
 

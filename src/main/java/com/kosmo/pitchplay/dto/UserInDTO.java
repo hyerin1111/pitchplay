@@ -24,7 +24,7 @@ public class UserInDTO {
     private String email; // 이메일
 
     @NotNull(message = "아이디는 필수입니다.")
-    private String id; // 아이디
+    private String userId; // 아이디
 
     private String nickname; // 닉네임
 

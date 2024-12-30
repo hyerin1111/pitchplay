@@ -14,7 +14,7 @@ public class UserOutDTO {
     private String birthday; // 생년월일
     private String phone; // 휴대폰 번호
     private String email; // 이메일
-    private String id; //아이디
+    private String userId; //아이디
     private String nickname; // 닉네임
 
     //프로필정보

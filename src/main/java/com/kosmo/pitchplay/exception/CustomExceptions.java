@@ -2,12 +2,13 @@ package com.kosmo.pitchplay.exception;
 
 public class CustomExceptions {
 
-    //이메일 중복 예외
-    public static class DuplicateEmailException extends RuntimeException {
-        public DuplicateEmailException(String message) {
+    //중복 예외
+    public static class DuplicateException extends RuntimeException {
+        public DuplicateException(String message) {
             super(message);
         }
     }
+
 
     // 인증번호 불일치 예외
     public static class InvalidVerificationCodeException extends RuntimeException {

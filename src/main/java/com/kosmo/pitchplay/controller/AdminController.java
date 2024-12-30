@@ -44,28 +44,28 @@ public class AdminController {
 
     // 유저번호로 유저 조회
     @GetMapping("/users/user-number/{userNumber}")
-    public ResponseEntity<UserOutDTO> getUserByUserNumber(@PathVariable Integer userNumber) {
+    public ResponseEntity<UserOutDTO> getUserByUserNumber(@PathVariable("userNumber") Integer userNumber) {
         UserOutDTO user = userService.getUserByUserNumber(userNumber);
         return ResponseEntity.ok(user);
     }
 
     // 유저 이메일로 유저 조회
     @GetMapping("/users/email/{email}")
-    public ResponseEntity<UserOutDTO> getUserByEmail(@PathVariable String email) {
+    public ResponseEntity<UserOutDTO> getUserByEmail(@PathVariable("email") String email) {
         UserOutDTO user = userService.getUserByEmail(email);
         return ResponseEntity.ok(user);
     }
 
     // 유저 ID로 유저 조회
-    @GetMapping("/users/id/{id}")
-    public ResponseEntity<UserOutDTO> getUserById(@PathVariable String id) {
-        UserOutDTO user = userService.getUserById(id);
+    @GetMapping("/users/user-id/{userId}")
+    public ResponseEntity<UserOutDTO> getUserById(@PathVariable("userId") String userId) {
+        UserOutDTO user = userService.getUserByUserId(userId);
         return ResponseEntity.ok(user);
     }
 
     // 유저 별명으로 유저 조회
     @GetMapping("/users/nickname/{nickname}")
-    public ResponseEntity<UserOutDTO> getUserByNickname(@PathVariable String nickname) {
+    public ResponseEntity<UserOutDTO> getUserByNickname(@PathVariable("nickname") String nickname) {
         UserOutDTO user = userService.getUserByNickname(nickname);
         return ResponseEntity.ok(user);
     }
