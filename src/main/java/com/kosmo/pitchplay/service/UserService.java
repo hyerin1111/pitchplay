@@ -5,7 +5,6 @@ import com.kosmo.pitchplay.dto.UserInDTO;
 import com.kosmo.pitchplay.dto.UserOutDTO;
 import com.kosmo.pitchplay.entity.User;
 import com.kosmo.pitchplay.exception.CustomExceptions.*;
-import com.kosmo.pitchplay.repository.TeamRepository;
 import com.kosmo.pitchplay.repository.UserRepository;
 import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transactional;

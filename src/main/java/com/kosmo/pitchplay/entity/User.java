@@ -100,4 +100,7 @@ public class User {
 
     @Column(name = "delete_date")
     private LocalDateTime deleteDate;  // 탈퇴 날짜
+
+    @Column(name="role")
+    private String role; // user 혹은 admin
 }

@@ -28,6 +28,7 @@ public class UserConverter {
                 .emailNotification(userInDTO.getEmailNotification() != null ? userInDTO.getEmailNotification() : false)
                 .snsNotification(userInDTO.getSnsNotification() != null ? userInDTO.getSnsNotification() : false)
                 .isDeleted(false)
+                .role(userInDTO.getRole() != null ? userInDTO.getRole() :  "user")
                 .build();
     }
 

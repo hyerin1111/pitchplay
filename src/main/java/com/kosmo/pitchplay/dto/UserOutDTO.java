@@ -36,4 +36,7 @@ public class UserOutDTO {
     private Boolean emailNotification; // 이메일 알림설정
     private Boolean snsNotification; // SNS 알림설정
     private LocalDateTime joinDate; // 가입날짜
+
+    // 유저 혹은 관리자
+    private String role;
 }

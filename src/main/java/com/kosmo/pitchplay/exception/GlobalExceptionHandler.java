@@ -15,8 +15,8 @@ public class GlobalExceptionHandler {
     }
 
     // 인증번호 불일치 예외 처리
-    @ExceptionHandler(CustomExceptions.InvalidVerificationCodeException.class)
-    public ResponseEntity<String> handleInvalidVerificationCodeException(CustomExceptions.InvalidVerificationCodeException e) {
+    @ExceptionHandler(CustomExceptions.InvalidException.class)
+    public ResponseEntity<String> handleInvalidVerificationCodeException(CustomExceptions.InvalidException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
 

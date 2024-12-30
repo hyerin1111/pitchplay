@@ -51,5 +51,6 @@ public class UserInDTO {
 
     private Boolean profilePublic; // 프로필 공개 여부
     private Boolean emailNotification; // 이메일 알림 설정
-    private Boolean snsNotification; // SNS 알림 설정
+    private Boolean snsNotification; // SNS 알림
+    private String role; // 유저 혹은 관리자
 }

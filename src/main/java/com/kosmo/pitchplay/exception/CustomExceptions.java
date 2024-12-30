@@ -9,20 +9,20 @@ public class CustomExceptions {
         }
     }
 
-
-    // 인증번호 불일치 예외
-    public static class InvalidVerificationCodeException extends RuntimeException {
-        public InvalidVerificationCodeException(String message) {
+    // 불일치 예외
+    public static class InvalidException extends RuntimeException {
+        public InvalidException(String message) {
             super(message);
         }
     }
 
-    // 유저 미발견 예외
+    // 유저 없음 예외
     public static class UserNotFoundException extends RuntimeException{
         public UserNotFoundException(){
             super("유저를 찾을 수 없습니다.");
         }
     }
+
 
 
 }
