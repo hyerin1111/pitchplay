@@ -33,7 +33,7 @@ public class User {
     private Integer userNumber;
 
     // 필수정보
-    @Column(name = "name", nullable = false, length = 20)
+    @Column(name = "name", nullable = false, updatable = false, length = 20)
     private String name; // 성명
 
     @Column(name = "birthday", nullable = false, length = 20)
@@ -42,13 +42,13 @@ public class User {
     @Column(name = "phone", nullable = false, length = 20)
     private String phone; // 휴대폰 번호(재설정 가능)
 
-    @Column(name = "email", nullable = false, unique = true, length = 100)
-    private String email; // 이메일 (재설정 가능)
+    @Column(name = "email", nullable = false, updatable = false, unique = true, length = 100)
+    private String email; // 이메일
 
-    @Column(name = "id", nullable = false, unique = true, length = 15)
+    @Column(name = "id", nullable = false, updatable = false, unique = true, length = 15)
     private String id; // 아이디
 
-    @Column(name = "nickname", unique = true, length = 20)
+    @Column(name = "nickname", unique = true, updatable = false, length = 20)
     private String nickname; // 닉네임
 
     @Column(name = "password", nullable = false, length = 60)
@@ -97,4 +97,7 @@ public class User {
 
     @Column(name = "is_deleted", nullable = false)
     private Boolean isDeleted;  // 탈퇴여부
+
+    @Column(name = "delete_date")
+    private LocalDateTime deleteDate = null;  // 탈퇴 날짜
 }

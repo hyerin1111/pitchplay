@@ -1,0 +1,73 @@
+package com.kosmo.pitchplay.controller;
+
+import com.kosmo.pitchplay.dto.UserOutDTO;
+import com.kosmo.pitchplay.service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/admin")
+@RequiredArgsConstructor
+public class AdminController {
+    private final UserService userService;
+
+    // ------------------- 유저 관련 API -------------------
+    // 유저 조회
+    // 유저 전체 목록 조회 혹은 가입년도 유저목록 조회 혹은 탈퇴회원 유저목록 조회(페이지 처리)
+    @GetMapping("/users")
+    public ResponseEntity<Page<UserOutDTO>> getUsersByFilters(
+            @RequestParam(required = false, name="year") Integer year,
+            @RequestParam(required = false, name="isDeleted") Boolean isDeleted,
+            Pageable pageable) {
+
+        Page<UserOutDTO> users;
+
+        if (year != null && isDeleted != null) {
+            // 가입년도와 탈퇴 여부 모두 필터링 (ex : ?year=2023&isDeleted=true&page=1&size=10 )
+            users = userService.getUsersByYearAndIsDeleted(year, isDeleted, pageable);
+        } else if (year != null) {
+            // 가입년도만 필터링(ex : ?year=2023&page=1&size=10 )
+            users = userService.getUsersByYear(year, pageable);
+        } else if (isDeleted != null) {
+            // 탈퇴 여부만 필터링 (ex: ?isDeleted=true&page=1&size=10 )
+            users = userService.getUsersByIsDeleted(isDeleted, pageable);
+        } else {
+            // 필터링 없이 전체 목록 조회 (ex : ?page=1&size=10 )
+            users = userService.getAllUsers(pageable);
+        }
+
+        return ResponseEntity.ok(users);
+    }
+
+    // 유저번호로 유저 조회
+    @GetMapping("/users/user-number/{userNumber}")
+    public ResponseEntity<UserOutDTO> getUserByUserNumber(@PathVariable Integer userNumber) {
+        UserOutDTO user = userService.getUserByUserNumber(userNumber);
+        return ResponseEntity.ok(user);
+    }
+
+    // 유저 이메일로 유저 조회
+    @GetMapping("/users/email/{email}")
+    public ResponseEntity<UserOutDTO> getUserByEmail(@PathVariable String email) {
+        UserOutDTO user = userService.getUserByEmail(email);
+        return ResponseEntity.ok(user);
+    }
+
+    // 유저 ID로 유저 조회
+    @GetMapping("/users/id/{id}")
+    public ResponseEntity<UserOutDTO> getUserById(@PathVariable String id) {
+        UserOutDTO user = userService.getUserById(id);
+        return ResponseEntity.ok(user);
+    }
+
+    // 유저 별명으로 유저 조회
+    @GetMapping("/users/nickname/{nickname}")
+    public ResponseEntity<UserOutDTO> getUserByNickname(@PathVariable String nickname) {
+        UserOutDTO user = userService.getUserByNickname(nickname);
+        return ResponseEntity.ok(user);
+    }
+
+}
