@@ -105,25 +105,24 @@ public class AuthService {
     }
 
     // 비밀번호 재설정
-    public ResponseEntity<String> resetPassword(String name, String userId, String email, Integer verificationCode, String newPassword) {
-        // 이메일로 저장된 인증번호 검증
-        Integer storedCode = verificationCodes.get(email);
-        if (storedCode == null || !storedCode.equals(verificationCode)) {
-            throw new InvalidException("인증번호가 일치하지 않습니다.");
-        }
-
-        // 이름, 아이디, 이메일로 사용자 조회
-        User user = userRepository.findByNameAndUserIdAndEmail(name, userId, email)
+    public ResponseEntity<String> resetPassword(String email, String newPassword) {
+        // 이메일로 사용자 조회
+        User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UserNotFoundException());
 
-        // 새 비밀번호 암호화
-        user = user.toBuilder()
-                .password(passwordEncoder.encode(newPassword)) // 비밀번호를 암호화하여 설정
-                .build();
+        // 새로운 비밀번호 암호화
+        String encryptedPassword = passwordEncoder.encode(newPassword);
 
         // 비밀번호 업데이트
+        user = user.toBuilder()
+                .password(encryptedPassword)
+                .build();
+
+        // 업데이트된 사용자 정보 저장
         userRepository.save(user);
 
+        // 비밀번호 변경 완료 메시지 반환
         return ResponseEntity.ok("비밀번호가 성공적으로 변경되었습니다.");
     }
+
 }
