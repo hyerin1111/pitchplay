@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -18,7 +21,7 @@ import lombok.Setter;
 )
 // 시설, 위치, 요금
 public class Station {
-    // 구장id, 구장소개, 구장이름(시설명), 구장주소(위치), 이용요금, 운영시간, 전화
+    // 구장id, 구장소개, 구장이름(시설명), 구장주소(위치), 이용요금, 운영시간, 전화, 이미지
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -49,5 +52,7 @@ public class Station {
     @Column(name = "station_callnum", nullable = false)
     private String stationCallnum;
 
-
+    // 이미지
+    @Column(name = "station_img", columnDefinition = "text")
+    private String StationImg;
 }
