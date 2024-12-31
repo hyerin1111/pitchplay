@@ -12,6 +12,7 @@ import java.util.List;
 @Builder
 public class TeamOutDTO {
 
+    @NotBlank(message = "팀 코드는 반드시 입력해야 합니다.")
     private String teamCode;
     @NotBlank(message = "팀 이름은 반드시 입력해야 합니다.")
     private String teamName;
@@ -19,7 +20,7 @@ public class TeamOutDTO {
     private String teamLevel;
     private String teamRegion;
     private List<String> teamPlayDay;
-    private List<LocalTime> teamPlayTime;
+    private List<String> teamPlayTime;
     private String teamImageUrl;
     private List<String> teamMember;
     @Size(max = 30, message = "팀원은 최대 30명까지 입니다.")

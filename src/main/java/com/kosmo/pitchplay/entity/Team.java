@@ -2,10 +2,8 @@ package com.kosmo.pitchplay.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.Type;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -14,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Getter
+@Setter
 @Builder
 @Table(name = "TEAM", indexes = {
         @Index(name = "idx_team_code", columnList = "team_code"),
@@ -36,14 +35,19 @@ public class Team {
     @Column(name = "team_leader", nullable = false)
     private String userUid;
 
+    @Column(name = "team_play_day", columnDefinition = "TEXT") // JSON 데이터로 저장
+    private List<String> teamPlayDay;
+
+    @Column(name = "team_play_time", columnDefinition = "TEXT")
+    private List<String> teamPlayTime;
+
+    @Column(name = "team_member", columnDefinition = "TEXT")
+    private List<String> teamMember;
+
     @Column
     private String teamLevel;
     private String teamRegion;
-    private List<String> teamPlayDay;
-    private List<LocalTime> teamPlayTime;
     private String teamImageUrl;
-    private List<String> teamMember;
-    @Size(max = 30, message = "팀원은 최대 30명까지 입니다.")
     private Integer teamMemberCount;
     private String teamIntroduce;
     private String teamByAge;
