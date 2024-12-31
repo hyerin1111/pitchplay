@@ -1,5 +1,6 @@
 package com.kosmo.pitchplay.entity;
 
+import com.kosmo.pitchplay.converter.StringListConverter;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -35,13 +36,16 @@ public class Team {
     @Column(name = "team_leader", nullable = false)
     private String userUid;
 
-    @Column(name = "team_play_day", columnDefinition = "TEXT") // JSON 데이터로 저장
+    @Convert(converter = StringListConverter.class)
+    @Column(name = "team_play_day", columnDefinition = "TEXT")
     private List<String> teamPlayDay;
 
+    @Convert(converter = StringListConverter.class)
     @Column(name = "team_play_time", columnDefinition = "TEXT")
     private List<String> teamPlayTime;
 
-    @Column(name = "team_member", columnDefinition = "TEXT")
+    @Convert(converter = StringListConverter.class)
+    @Column(name = "team_member", columnDefinition = "LONGTEXT")
     private List<String> teamMember;
 
     @Column

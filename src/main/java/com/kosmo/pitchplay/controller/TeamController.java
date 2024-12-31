@@ -29,5 +29,28 @@ public class TeamController {
         TeamOutDTO createdTeam = teamService.createTeam(teamInDTO, userUid);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdTeam);
     }
+
+    // 팀 정보 수정 ( 팀 리더만 )
+    @PutMapping("/{teamCode}")
+    public ResponseEntity<TeamOutDTO> updateTeam(
+            @PathVariable(name = "teamCode") String teamCode,
+            @RequestBody TeamInDTO teamInDTO,
+            HttpSession session) {
+
+        String userUid = (String) session.getAttribute("userUid");
+        if (userUid == null) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
+        }
+
+        try{
+            teamService.updateTeam(teamCode, userUid, teamInDTO);
+            return ResponseEntity.status(HttpStatus.OK).build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null); // 권한이 없는 경우
+        }
+    }
+
+
+
 }
 

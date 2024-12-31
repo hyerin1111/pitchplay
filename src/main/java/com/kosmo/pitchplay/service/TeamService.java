@@ -25,6 +25,7 @@ public class TeamService {
     @Transactional(rollbackFor = Exception.class)
     public TeamOutDTO createTeam(TeamInDTO teamInDTO, String userUid) {  // userUid를 파라미터로 받음
         try {
+            checkIfUserHasExistingTeam(userUid);
             validateRequiredFields(teamInDTO);
             checkTeamCode(teamInDTO.getTeamCode());
             validateTeamMemberCount(teamInDTO.getTeamMemberCount());
@@ -33,12 +34,25 @@ public class TeamService {
             Team team = teamConverter.toEntity(teamInDTO);
             team.setUserUid(userUid);  // 로그인한 사용자의 userUid를 팀에 설정
 
+            // 팀공개가 null인 경우 기본값 true로 설정
+            if (team.getTeamPublic() == null) {
+                team.setTeamPublic(true);
+            }
+
             Team savedTeam = teamRepository.save(team);
 
             return teamConverter.toDTO(savedTeam);
         } catch (Exception e) {
             // 예외 발생 시 롤백 및 예외 메시지 출력
             throw new RuntimeException("팀 생성 중 오류 발생", e);
+        }
+    }
+
+    // 사용자가 이미 속한 팀이 있는지 확인
+    private void checkIfUserHasExistingTeam(String userUid) {
+        Optional<Team> existingTeam = teamRepository.findByUserUid(userUid);
+        if (existingTeam.isPresent()) {
+            throw new IllegalArgumentException("이미 속한 팀이 있습니다.");
         }
     }
 
@@ -62,6 +76,43 @@ public class TeamService {
         if (teamMemberCount != null && teamMemberCount > 30) {
             throw new IllegalArgumentException("팀원은 최대 30명까지 가능합니다.");
         }
+    }
+
+    // 팀 리더가 팀에 대한 정보를 수정
+    @Transactional
+    public TeamOutDTO updateTeam(String teamCode, String userUid, TeamInDTO teamInDTO) {
+        Team team = teamRepository.findByTeamCode(teamCode)
+                .orElseThrow(() -> new IllegalArgumentException("해당 팀이 존재하지 않습니다."));
+
+        // 팀 리더만 수정 가능
+        if (!team.getUserUid().equals(userUid)) {
+            throw new IllegalArgumentException("팀 리더만 팀 정보를 수정할 수 있습니다.");
+        }
+
+        // TeamInDTO를 Team으로 변환
+        Team updatedTeam = teamConverter.toEntity(teamInDTO);
+
+        // 팀 정보 수정되지 말아야 할 것들만 작성
+        updatedTeam = team.builder()
+                .teamId(team.getTeamId())
+                .teamCode(team.getTeamCode())  // 기존 teamCode를 그대로 유지
+                .teamName(team.getTeamName())
+                .userUid(team.getUserUid())
+                // null이 아닐 때만 수정하도록 조건 추가
+                .teamPlayDay(updatedTeam.getTeamPlayDay() != null ? updatedTeam.getTeamPlayDay() : team.getTeamPlayDay())
+                .teamPlayTime(updatedTeam.getTeamPlayTime() != null ? updatedTeam.getTeamPlayTime() : team.getTeamPlayTime())
+                .teamLevel(updatedTeam.getTeamLevel() != null ? updatedTeam.getTeamLevel() : team.getTeamLevel())
+                .teamRegion(updatedTeam.getTeamRegion() != null ? updatedTeam.getTeamRegion() : team.getTeamRegion())
+                .teamImageUrl(updatedTeam.getTeamImageUrl() != null ? updatedTeam.getTeamImageUrl() : team.getTeamImageUrl())
+                .teamIntroduce(updatedTeam.getTeamIntroduce() != null ? updatedTeam.getTeamIntroduce() : team.getTeamIntroduce())
+                .teamByAge(updatedTeam.getTeamByAge() != null ? updatedTeam.getTeamByAge() : team.getTeamByAge())
+                .stadiumName(updatedTeam.getStadiumName() != null ? updatedTeam.getStadiumName() : team.getStadiumName())
+                .teamPublic(updatedTeam.getTeamPublic() != null ? updatedTeam.getTeamPublic() : team.getTeamPublic())
+                .build();
+
+        teamRepository.save(updatedTeam);
+
+        return teamConverter.toDTO(updatedTeam);  // 수정된 팀 정보를 반환
     }
 
 }

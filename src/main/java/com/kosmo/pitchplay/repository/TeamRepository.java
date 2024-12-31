@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface TeamRepository extends JpaRepository<Team, String> {
 
     Optional<Team> findByTeamCode(String teamCode);
+    Optional<Team> findByUserUid(String userUid);
 }
