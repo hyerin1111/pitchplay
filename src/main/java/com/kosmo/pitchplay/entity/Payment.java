@@ -1,9 +1,6 @@
 package com.kosmo.pitchplay.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -11,7 +8,6 @@ import java.time.LocalDateTime;
 
 @Table
 @Builder
-@Setter
 @Getter
 @Entity
 @AllArgsConstructor
@@ -19,6 +15,7 @@ import java.time.LocalDateTime;
 public class Payment {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "payment_id", nullable = false, updatable = false)
     private String paymentId; // 결제 ID
 
@@ -26,11 +23,12 @@ public class Payment {
     @Builder.Default
     private Long paymentNum = null; // 결제 번호
 
-    @Column(name = "user_id", nullable = false, updatable = false)
-    private String userId; // 유저 ID(FK)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column(name = "cash_id", nullable = false, updatable = false)
-    private String cashId; // 캐쉬 ID(FK
+    private String cashId; // 캐쉬 ID(FK)
 
     @Column(name = "paid_amount", nullable = false, updatable = false)
     private Long paidAmount; // 결제 금액

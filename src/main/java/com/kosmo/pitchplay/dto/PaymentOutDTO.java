@@ -2,23 +2,21 @@ package com.kosmo.pitchplay.dto;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Getter
-@Setter
 @Builder
 public class PaymentOutDTO {
-    // 유저관련
-    private String userNumber;
+    // 유저관련(User)
+    private Integer userNumber;
     private String name;
     private String email;
-    private String phoneNumber;
+    private String phone;
     private String bankName;
 
-    // 결제관련
-    private String paymentNum;
+    // 결제관련(Payment)
+    private Long paymentNum;
     private Long paidAmount;
     private LocalDateTime payRequestedAt;
     private LocalDateTime payApprovedAt;

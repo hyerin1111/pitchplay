@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Setter
 public class PaymentInDTO {
     private String paymentId;
-    private String paymentNum;
+    private Long paymentNum;
     private String userId;
     private String cashId;
     private Long paidAmount;
