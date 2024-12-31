@@ -53,4 +53,5 @@ public class Team {
     private String teamByAge;
     private String stadiumName;
     private Boolean teamPublic;
+
 }

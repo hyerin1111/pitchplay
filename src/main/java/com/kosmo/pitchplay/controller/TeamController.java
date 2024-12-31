@@ -3,6 +3,7 @@ package com.kosmo.pitchplay.controller;
 import com.kosmo.pitchplay.dto.TeamInDTO;
 import com.kosmo.pitchplay.dto.TeamOutDTO;
 import com.kosmo.pitchplay.service.TeamService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +19,15 @@ public class TeamController {
     @PostMapping
     public ResponseEntity<TeamOutDTO> createTeam(
             @RequestBody TeamInDTO teamInDTO,
-            @RequestHeader("userUid") String userUid) {  // userUid를 헤더에서 받음
+            HttpSession session){ // 세션에서 userUid를 가져옴
+
+        String userUid = (String) session.getAttribute("userUid");
+        if (userUid == null) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
+        }
 
         TeamOutDTO createdTeam = teamService.createTeam(teamInDTO, userUid);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdTeam);
     }
 }
+
