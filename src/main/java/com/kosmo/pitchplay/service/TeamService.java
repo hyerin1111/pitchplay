@@ -4,6 +4,7 @@ import com.kosmo.pitchplay.converter.TeamConverter;
 import com.kosmo.pitchplay.dto.TeamInDTO;
 import com.kosmo.pitchplay.dto.TeamOutDTO;
 import com.kosmo.pitchplay.entity.Team;
+import com.kosmo.pitchplay.enums.TeamRole;
 import com.kosmo.pitchplay.repository.TeamRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +21,8 @@ public class TeamService {
         this.teamRepository = teamRepository;
         this.teamConverter = teamConverter;
     }
+
+
 
     // 팀 생성
     @Transactional(rollbackFor = Exception.class)
@@ -38,6 +41,9 @@ public class TeamService {
             if (team.getTeamPublic() == null) {
                 team.setTeamPublic(true);
             }
+
+            // 팀 생성자가 자동으로 리더가 되도록 설정
+            team.addMember(userUid, TeamRole.LEADER); // 리더 역할 추가
 
             Team savedTeam = teamRepository.save(team);
 
@@ -114,5 +120,75 @@ public class TeamService {
 
         return teamConverter.toDTO(updatedTeam);  // 수정된 팀 정보를 반환
     }
+
+    // 팀원 추가 및 가입 승인 처리
+    @Transactional
+    public void approveMember(String teamId, String userUid) {
+        // 팀 조회
+        Team team = teamRepository.findById(teamId)
+                .orElseThrow(() -> new IllegalArgumentException("팀을 찾을 수 없습니다."));
+
+        // 팀 리더 또는 매니저만 승인할 수 있도록
+        if (!isAuthorizedUser(team, userUid)) {
+            throw new IllegalArgumentException("팀리더 혹은 매니저만 팀원 추가가 가능합니다.");
+        }
+
+        // 가입 승인이 되면 팀에 추가하고 역할을 MEMBER로 설정
+        team.addMember(userUid, TeamRole.MEMBER);
+        teamRepository.save(team);
+    }
+
+    // 가입 거절 처리
+    @Transactional
+    public void rejectMembershipRequest(String teamId, String userUid) {
+        // 팀 조회
+        Team team = teamRepository.findById(teamId)
+                .orElseThrow(() -> new IllegalArgumentException("팀을 찾을 수 없습니다."));
+
+        // 팀 리더 또는 매니저만 가입 거절할 수 있도록
+        if (!isAuthorizedUser(team, userUid)) {
+            throw new IllegalArgumentException("팀리더 혹은 매니저만 팀원 거절이 가능합니다.");
+        }
+
+        // 가입 대기 목록에서 사용자 제거 (가입 거절)
+        if (team.getPendingMembers().contains(userUid)) {
+            team.removePendingMember(userUid);
+            teamRepository.save(team);
+        } else {
+            throw new IllegalArgumentException("가입 요청이 없는 사용자입니다.");
+        }
+    }
+
+    // 가입 대기 중인 사용자를 관리하는 메서드 (가입 대기 목록 추가)
+    public void addPendingMember(String teamId, String userUid) {
+        Team team = teamRepository.findById(teamId)
+                .orElseThrow(() -> new IllegalArgumentException("팀을 찾을 수 없습니다."));
+        team.addPendingMember(userUid); // 가입 대기 목록에 사용자 추가
+        teamRepository.save(team);
+    }
+
+    // 팀원 삭제
+    @Transactional
+    public void removeMember(String teamId, String userUid) {
+        // 팀 조회
+        Team team = teamRepository.findById(teamId)
+                .orElseThrow(() -> new IllegalArgumentException("팀을 찾을 수 없습니다."));
+
+        // 팀 리더 또는 관리자만 멤버를 삭제할 수 있도록 제한
+        if (!isAuthorizedUser(team, userUid)) {
+            throw new IllegalArgumentException("팀 리더 또는 관리자만 멤버를 삭제할 수 있습니다.");
+        }
+
+        // 멤버 삭제
+        team.removeMember(userUid);
+        teamRepository.save(team);
+    }
+
+    // 권한 확인 메서드
+    public boolean isAuthorizedUser(Team team, String userUid) {
+        return team.getUserUid().equals(userUid) ||
+                team.getTeamMembers().get(userUid) == TeamRole.MANAGER;
+    }
+
 
 }
