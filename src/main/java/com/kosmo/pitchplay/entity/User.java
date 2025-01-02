@@ -79,6 +79,7 @@ public class User {
     private Integer userCash;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private List<CashHistory> cashHistories = new ArrayList<>(); // 유저 캐시 사용 현황
 
     // 개인 정보
