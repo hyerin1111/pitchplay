@@ -21,7 +21,7 @@ public class NoticeController {
     //공지사항 가져오기
     @GetMapping
     public List<NoticeDTO> getNotices(){
-        return noticeService.getNoticeList();
+        return noticeService.getNoticeSummaryList();
     }
 
     //자주묻는 질문 가져오기

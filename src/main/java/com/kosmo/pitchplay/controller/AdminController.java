@@ -1,6 +1,8 @@
 package com.kosmo.pitchplay.controller;
 
+import com.kosmo.pitchplay.dto.NoticeDTO;
 import com.kosmo.pitchplay.dto.UserOutDTO;
+import com.kosmo.pitchplay.service.NoticeService;
 import com.kosmo.pitchplay.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -8,11 +10,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/admin")
 @RequiredArgsConstructor
 public class AdminController {
     private final UserService userService;
+    private final NoticeService noticeService;
 
     // ------------------- 유저 관련 API -------------------
     // 유저 조회
@@ -73,7 +78,25 @@ public class AdminController {
     
     
     //공지사항 글쓰기  --내일할게요
+    @PostMapping("/notice-board/write")
+    public NoticeDTO createNotice(@RequestBody NoticeDTO noticeDTO) {
+        System.out.println("NoticeType: " + noticeDTO.getNoticeType());  // 로그로 출력 확인
+        return noticeService.createNotice(noticeDTO);
+    }
+
+    //공지사항,자주묻는질문 글 불러오기
+    @GetMapping("notice-board")
+    public List<NoticeDTO>  getAllNotices() {
+        return noticeService.getNoticeALLList(); // 모든 필드 반환
+    }
     
     //자주묻는 질문 글쓰기  --내일할게요..
+
+
+    //자주묻는 질문 글 불러오기
+//    @GetMapping
+//    public List<NoticeDTO> getAllFAQ(){
+//        return noticeService.getFAQSummaryList();
+//    }
 
 }

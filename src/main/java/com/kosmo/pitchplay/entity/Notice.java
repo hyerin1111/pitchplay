@@ -43,7 +43,7 @@ public class Notice {
 
     //글
     @Lob
-    @Column(name = "notice_content", nullable = false)
+    @Column(name = "notice_content", nullable = false, columnDefinition = "LONGTEXT")
     private String noticeContent;
     //columnDefinition = "text" 는 @Lob과 충돌 가능성이 있어서 Lob사용선택 후 columnDefinition = "text" 사용하지 않았습니다.
 
