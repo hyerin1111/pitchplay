@@ -28,7 +28,7 @@ public class PaymentService {
             throw new CustomExceptions.UserNotFoundException();
         }
 
-        Page<Payment> payments = paymentRepository.findByUserUid(userUid, pageable);
+        Page<Payment> payments = paymentRepository.findByUser_UserUid(userUid, pageable);
 
         return payments.map(paymentConverter::toDTO);
     }

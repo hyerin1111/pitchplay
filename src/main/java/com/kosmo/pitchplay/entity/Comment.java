@@ -15,6 +15,10 @@ import java.time.LocalDateTime;
 @Setter
 
 public class Comment {
+    @Id // 기본키
+    @GeneratedValue(strategy = GenerationType.UUID) // 자동으로 UUID가 생성됨
+    @Column(name = "comment_id", nullable = false, updatable = false, unique = true, length = 36)
+    private String commentId;
 
     // 작성자 정보 (User 엔티티와 관계)
     @ManyToOne

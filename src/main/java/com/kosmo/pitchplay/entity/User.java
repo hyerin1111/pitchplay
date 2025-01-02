@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor // 빌더는 기본생성자에 접근을 시도하려고 하나, protected로 막혀있어 접근을 거절당하기 때문에 전체 필드에 대한 생성자를 작성한다.
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -75,6 +77,9 @@ public class User {
 
     @Column(name = "user_cash")
     private Integer userCash;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CashHistory> cashHistories = new ArrayList<>(); // 유저 캐시 사용 현황
 
     // 개인 정보
     @Column(name = "account")

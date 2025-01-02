@@ -13,6 +13,6 @@ import java.util.Optional;
 public interface PaymentRepository extends JpaRepository<Payment, String> {
     
     // 마이페이지에서 userUid로 결제내역들 조회
-    @EntityGraph(attributePaths = {"user"}) // user 엔티티를 함께 로딩
-    Page<Payment> findByUserUid(String userUid, Pageable pageable);
+    @EntityGraph(attributePaths = {"user"})
+    Page<Payment> findByUser_UserUid(String userUid, Pageable pageable);
 }

@@ -27,7 +27,7 @@ public class AuthService {
     public ResponseEntity<String> login(String userId, String password, HttpSession session) {
         // userId로 사용자 조회
         User user = userRepository.findByUserId(userId)
-                .orElseThrow(() -> new UserNotFoundException());
+                .orElseThrow(UserNotFoundException::new);
 
         // 비밀번호 확인 (암호화된 비밀번호와 입력한 비밀번호 비교)
         if (!passwordEncoder.matches(password, user.getPassword())) {
@@ -52,11 +52,11 @@ public class AuthService {
         if (name != null && !name.isEmpty()) {
             // 이름과 이메일로 사용자 찾기 (아이디 찾기 시)
             User user = userRepository.findByNameAndEmail(name, email)
-                    .orElseThrow(() -> new UserNotFoundException());
+                    .orElseThrow(UserNotFoundException::new);
         } else if (userId != null && !userId.isEmpty()) {
             // 이름, 아이디, 이메일로 사용자 찾기 (비밀번호 찾기 시)
             User user = userRepository.findByNameAndUserIdAndEmail(name, userId, email)
-                    .orElseThrow(() -> new UserNotFoundException());
+                    .orElseThrow(UserNotFoundException::new);
         }
 
         // 인증번호 발송
@@ -79,7 +79,7 @@ public class AuthService {
 
         // 이름과 이메일로 사용자 조회
         User user = userRepository.findByNameAndEmail(name, email)
-                .orElseThrow(() -> new UserNotFoundException());
+                .orElseThrow(UserNotFoundException::new);
 
         // 인증번호가 맞으면 아이디 반환
         return ResponseEntity.ok("아이디는 " + user.getUserId() + "입니다.");
@@ -101,7 +101,7 @@ public class AuthService {
     public ResponseEntity<String> resetPassword(String email, String newPassword) {
         // 이메일로 사용자 조회
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new UserNotFoundException());
+                .orElseThrow(UserNotFoundException::new);
 
         // 새로운 비밀번호 암호화
         String encryptedPassword = passwordEncoder.encode(newPassword);

@@ -24,7 +24,7 @@ public class Payment {
     private Long paymentNum = null; // 결제 번호
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_uid")
     private User user;
 
     @Column(name = "cash_id", nullable = false, updatable = false)
