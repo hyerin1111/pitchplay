@@ -1,0 +1,14 @@
+.content { 
+    padding: 20px;
+}
+
+.actbox {
+    margin-top: 20px ;
+    padding: 30px;
+    background-color: #f9fafc;
+    border-radius: 15px;
+
+}
+.title {
+    margin-bottom: 20px;
+}

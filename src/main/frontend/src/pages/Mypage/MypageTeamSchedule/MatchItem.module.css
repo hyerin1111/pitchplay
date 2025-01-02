@@ -1,0 +1,47 @@
+.itembox {
+    display: flex;
+    flex-wrap: wrap; /* 아이템들이 여러 줄로 나뉘도록 설정 */
+    gap: 20px; /* 아이템 사이의 간격 */
+    margin-top: 20px;
+  }
+  
+  .matchItem {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(33.33% - 20px); /* 한 줄에 3개씩 배치 */
+    box-sizing: border-box; /* 패딩과 마진을 포함하여 계산 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .matchItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .teamName {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .matchDetails {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .matchDetails p {
+    margin: 5px 0;
+  }
+  
+  .matchDetails strong {
+    color: #333;
+  }
+  

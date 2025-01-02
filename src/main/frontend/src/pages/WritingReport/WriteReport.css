@@ -1,0 +1,57 @@
+.write-report-container {
+  padding: 80px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.write-report-form label {
+  display: block;
+  font-weight: bold;
+}
+.write-report-form input{
+  margin-bottom: 15px;
+}
+.write-report-form input,
+.write-report-form select,
+.write-report-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.write-report-form textarea {
+  height: 150px;
+}
+
+.write-report-form .form-actions {
+  text-align: center;
+}
+
+.write-report-form button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.write-report-form button[type="button1"] {
+  background-color: #f44336;
+}
+
+.write-report-form button:hover {
+  opacity: 0.8;
+}

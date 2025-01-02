@@ -1,0 +1,205 @@
+[
+    {
+        "socialNumber": "123912",
+        "userId": "pitch123",
+        "nickname": "피치플레이",
+        "stadiumId": "S231208105143407599",
+        "socialGender": "남성",
+        "socialSize": "4vs4",
+        "socialLevel": "비기너",
+        "socialTime": "2024-11-25T20:00:00",
+        "writtenDate": "2024-11-01",
+        "viewCount": "100",
+        "activeStatus": "false",
+        "currentMember": [
+            
+            {"nickname": "꼬스모", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "축구왕", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "슛돌이", "src": "/src/assets/images/main_social.jpg"}
+        ],
+        "totalMember": "8"
+    },
+    {
+        "socialNumber": "234234",
+        "userId": "pitch123",
+        "nickname": "피치플레이",
+        "stadiumId": "S241020142339657690",
+        "socialGender": "여성",
+        "socialSize": "4vs4",
+        "socialLevel": "아마추어",
+        "socialTime": "2024-12-01T18:00:00",
+        "writtenDate": "2024-11-15",
+        "viewCount": "150",
+        "activeStatus": "false",
+        "currentMember": [
+            {"nickname": "축구발", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "내가바로금발", "src": "/src/assets/images/main_social.jpg"}
+        ],
+        "totalMember": "6"
+    },
+    {
+        "socialNumber": "345345",
+        "userId": "pitch123",
+        "nickname": "피치플레이",
+        "stadiumId": "S231212133601633481",
+        "socialGender": "혼성",
+        "socialSize": "5vs5",
+        "socialLevel": "세미프로",
+        "socialTime": "2024-12-05T20:00:00",
+        "writtenDate": "2024-11-20",
+        "viewCount": "200",
+        "activeStatus": "false",
+        "currentMember": [
+            {"nickname": "꼬쓰모", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "나는축구가좋아여", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "재밌다축구", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "박수박수박수", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "피어난장미", "src": "/src/assets/images/main_social.jpg"}
+        ],
+        "totalMember": "10"
+    },
+    {
+        "socialNumber": "456456",
+        "userId": "garam456",
+        "nickname": "가람이",
+        "stadiumId": "S231208105143407599",
+        "socialGender": "여성",
+        "socialSize": "6vs6",
+        "socialLevel": "프로",
+        "socialTime": "2024-12-03T15:00:00",
+        "writtenDate": "2024-11-18",
+        "viewCount": "50",
+        "activeStatus": "true",
+        "currentMember": [
+            {"nickname": "재밌다축구", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "박수박수박수", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "꼬쓰모", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "김쑤", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "밍경", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "현현", "src": "/src/assets/images/main_social.jpg"}
+        ],
+        "totalMember": "6"
+    },
+    {
+        "socialNumber": "567567",
+        "userId": "garam456",
+        "nickname": "가람이",
+        "stadiumId": "S231208105143407599",
+        "socialGender": "남성",
+        "socialSize": "7vs7",
+        "socialLevel": "아마추어",
+        "socialTime": "2024-11-28T20:00:00",
+        "writtenDate": "2024-11-10",
+        "viewCount": "120",
+        "activeStatus": "false",
+        "currentMember": [
+            {"nickname": "닉네임할거없다", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "뭐라고하지", "src": "/src/assets/images/main_social.jpg"}
+        ],
+        "totalMember": "8"
+    },
+    {
+        "socialNumber": "678678",
+        "userId": "garam456",
+        "nickname": "가람이",
+        "stadiumId": "S231212133601633481",
+        "socialGender": "남성",
+        "socialSize": "5vs5",
+        "socialLevel": "전체",
+        "socialTime": "2024-12-06T19:00:00",
+        "writtenDate": "2024-11-22",
+        "viewCount": "180",
+        "activeStatus": "false",
+        "currentMember": [
+            {"nickname": "여길봐봐", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "여길봐줘", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "안녕하세요축구왕", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "피치플렉이", "src": "/src/assets/images/main_social.jpg"}
+        ],
+        "totalMember": "8"
+    },
+    {
+        "socialNumber": "789789",
+        "userId": "garam456",
+        "nickname": "가람이",
+        "stadiumId": "S120423174310156240",
+        "socialGender": "혼성",
+        "socialSize": "6vs6",
+        "socialLevel": "비기너",
+        "socialTime": "2024-12-07T17:00:00",
+        "writtenDate": "2024-11-23",
+        "viewCount": "90",
+        "activeStatus": "false",
+        "currentMember": [
+            {"nickname": "재밌다축구", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "박수박수박수", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "꼬쓰모", "src": "/src/assets/images/main_social.jpg"}
+        ],
+        "totalMember": "10"
+    },
+    {
+        "socialNumber": "890890",
+        "userId": "hyunsu789",
+        "nickname": "현수짱",
+        "stadiumId": "S231208105143407599",
+        "socialGender": "여성",
+        "socialSize": "11vs11",
+        "socialLevel": "세미프로",
+        "socialTime": "2024-12-10T21:00:00",
+        "writtenDate": "2024-11-25",
+        "viewCount": "250",
+        "activeStatus": "false",
+        "currentMember": [
+            {"nickname": "김쑤", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "밍경", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "현현", "src": "/src/assets/images/main_social.jpg"}
+        ],
+        "totalMember": "6"
+    },
+    {
+        "socialNumber": "901901",
+        "userId": "hyunsu789",
+        "nickname": "현수짱",
+        "stadiumId": "S120423174310156240",
+        "socialGender": "혼성",
+        "socialSize": "7vs7",
+        "socialLevel": "프로",
+        "socialTime": "2024-12-12T20:00:00",
+        "writtenDate": "2024-11-30",
+        "viewCount": "300",
+        "activeStatus": "true",
+        "currentMember": [
+            {"nickname": "밍밍", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "날아라슛돌이", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "슈퍼보드아닌가요", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "닉네임1", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "닉네임2", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "코스모닉네임1", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "꼬꼬꼬", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "제가바로날쌘돌이", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "어이쿠", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "대박", "src": "/src/assets/images/main_social.jpg"}
+        ],
+        "totalMember": "10"
+    },
+    {
+        "socialNumber": "101010",
+        "userId": "hyunsu789",
+        "nickname": "현수짱",
+        "stadiumId": "S241020142339657690",
+        "socialGender": "남성",
+        "socialSize": "4vs4",
+        "socialLevel": "아마추어",
+        "socialTime": "2024-12-14T19:00:00",
+        "writtenDate": "2024-12-01",
+        "viewCount": "320",
+        "activeStatus": "false",
+        "currentMember": [
+            {"nickname": "꼬꼬꼬", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "제가바로날쌘돌이", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "어이쿠", "src": "/src/assets/images/main_social.jpg"},
+            {"nickname": "대박", "src": "/src/assets/images/main_social.jpg"}
+        ],
+        "totalMember": "8"
+    }
+]

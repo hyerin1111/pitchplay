@@ -1,0 +1,24 @@
+.content {
+  padding: 20px;
+}
+
+.actbox {
+  padding: 30px;
+}
+.titi {
+  padding: 20px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.button-container > ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}

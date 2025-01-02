@@ -1,10 +1,10 @@
 :root {
---main-color: #07550C;
---subnav-color: #275B1A;
---modal-color: #267815;
---line-color: #CCCCCC;
---pink-color: #FECACA;
-}
+    --main-color: #07550C;
+    --subnav-color: #275B1A;
+    --modal-color: #267815;
+	--line-color: #CCCCCC;
+	--pink-color: #FECACA;
+  }
 
 /* default CSS */
 html, body, div, span, applet, object, iframe,
@@ -20,42 +20,36 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-margin: 0;
-padding: 0;
-border: 0;
-font-family: 'Noto Sans', 'Inter', sans-serif;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-family: 'Noto Sans', 'Inter', sans-serif;
 }
-
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-display: block;
+	display: block;
 }
-
 div, span, article, section, header, footer, aside, p, ul, li, fieldset, legend, label, a, nav, form {
-box-sizing: border-box;
+	box-sizing: border-box;
+	/* content-box */
 }
-
 ol, ul, li {
-list-style: none;
+	list-style: none;
 }
-
 table {
-border-collapse: collapse;
-border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
-
 img {
-max-width: 100%;
-height: auto;
-border: 0;
+	max-width: 100%;
+	height: auto;
+	border: 0;
 }
-
 a {
-text-decoration: none;
-color: #000000;
+    text-decoration: none;
+	color: #000000;
 }
-
 button {
-border: 0;
-background: transparent;
-cursor: pointer;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
 }

@@ -1,0 +1,315 @@
+[
+    {
+        "collectionNumber": "999991",
+        "collectionDescription": "10시00분 ~ 12시 00분, 장소는 서울 디지털운동장 A구장입니다. 회사 동호회 수준이니까 다들 걱정없이 오세요!! 회사팀이라서 땀흘리고 운동하는 것을 목적으로 하고 있습니다. 고레벨의 플레이를 원하시거나 과도한 경쟁심이 있으신분들은 정중히 사양하겠습니다",
+        "collectionTime": "2024-11-25T20:00:00",
+        "currentMember": "10",
+        "totalMember": "20",
+        "teamName": "피치플레이",
+        "teamCode": "pitchplay1",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamCity": "서울",
+        "teamLoc": "강남구",
+        "teamGender": "남성",
+        "viewCount": "100",
+        "activeStatus": "true",
+        "writtenDate": "2024-11-01",
+        "teamSize": "5vs5",
+        "stadiumId": "S231030140754182439",
+        "mercenaryMembers": [
+            {
+                "mercenarynickname": "태환짱",
+                "applicationDate": "2024-05-11",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            },
+            {
+                "mercenarynickname": "수현짱",
+                "applicationDate": "2024-12-02",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            },
+            {
+                "mercenarynickname": "정우짱",
+                "applicationDate": "2024-12-03",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            }
+        ]
+    },
+    {
+        "collectionNumber": "999992",
+        "collectionDescription": "축구 즐기실 분 모집합니다!",
+        "collectionTime": "2024-12-05T18:00:00",
+        "currentMember": "12",
+        "totalMember": "18",
+        "teamName": "축구사랑",
+        "teamCode": "soccerlove2",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamCity": "서울",
+        "teamLoc": "서초구",
+        "teamGender": "혼성",
+        "viewCount": "250",
+        "activeStatus": "false",
+        "writtenDate": "2024-11-05",
+        "teamSize": "6vs6",
+        "stadiumId": "S231030133625219222",
+        "mercenaryMembers": [
+            {
+                "mercenarynickname": "태영왕",
+                "applicationDate": "2024-12-01",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            }
+        ]
+    },
+    {
+        "collectionNumber": "999993",
+        "collectionDescription": "풋살팀 레드불에서 새로운 멤버를 찾습니다!",
+        "collectionTime": "2024-12-15T15:30:00",
+        "currentMember": "4",
+        "totalMember": "8",
+        "teamName": "드리머스",
+        "teamCode": "dreamers3",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamCity": "서울",
+        "teamLoc": "마포구",
+        "teamGender": "여성",
+        "viewCount": "80",
+        "activeStatus": "false",
+        "writtenDate": "2024-11-10",
+        "teamSize": "4vs4",
+        "stadiumId": "S231030111024981371",
+        "mercenaryMembers": [
+            {
+                "mercenarynickname": "태영왕",
+                "applicationDate": "2024-12-01",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            },
+            {
+                "mercenarynickname": "지혜짱",
+                "applicationDate": "2024-12-02",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            },
+            {
+                "mercenarynickname": "주희짱",
+                "applicationDate": "2024-12-03",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            }
+        ]
+    },
+    {
+        "collectionNumber": "999994",
+        "collectionDescription": "풋살 함께 하실 분 구합니다.",
+        "collectionTime": "2024-11-30T09:00:00",
+        "currentMember": "12",
+        "totalMember": "15",
+        "teamName": "울산번개",
+        "teamCode": "ulsanlight4",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamCity": "서울",
+        "teamLoc": "광진구",
+        "teamGender": "남성",
+        "viewCount": "120",
+        "activeStatus": "true",
+        "writtenDate": "2024-11-12",
+        "teamSize": "5vs5",
+        "stadiumId": "S231030134311132377",
+        "mercenaryMembers": [
+            {
+                "mercenarynickname": "상훈이",
+                "applicationDate": "2024-12-01",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            },
+            {
+                "mercenarynickname": "윤지짱",
+                "applicationDate": "2024-12-02",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            },
+            {
+                "mercenarynickname": "지영이",
+                "applicationDate": "2024-12-03",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            }
+        ]
+    },
+    {
+        "collectionNumber": "999995",
+        "collectionDescription": "아마추어 축구팀 모집합니다!",
+        "collectionTime": "2024-11-29T14:00:00",
+        "currentMember": "20",
+        "totalMember": "28",
+        "teamName": "광주타이거즈",
+        "teamCode": "gwangjutiger5",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamCity": "서울",
+        "teamLoc": "동작구",
+        "teamGender": "혼성",
+        "viewCount": "95",
+        "activeStatus": "false",
+        "writtenDate": "2024-11-15",
+        "teamSize": "7vs7",
+        "stadiumId": "S231030130758753552",
+        "mercenaryMembers": [
+            {
+                "mercenarynickname": "선영이",
+                "applicationDate": "2024-12-01",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            },
+            {
+                "mercenarynickname": "상민이",
+                "applicationDate": "2024-12-02",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            },
+            {
+                "mercenarynickname": "민경이",
+                "applicationDate": "2024-12-03",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            }
+        ]
+    },
+    {
+        "collectionNumber": "999996",
+        "collectionDescription": "우리 열심히해봅시다!!",
+        "collectionTime": "2024-12-01T10:00:00",
+        "currentMember": "5",
+        "totalMember": "10",
+        "teamName": "드리머스",
+        "teamCode": "dreamers3",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamCity": "서울",
+        "teamLoc": "송파구",
+        "teamGender": "혼성",
+        "viewCount": "50",
+        "activeStatus": "false",
+        "writtenDate": "2024-11-20",
+        "teamSize": "5vs5",
+        "stadiumId": "S231030140040048038",
+        "mercenaryMembers": [
+            {
+                "mercenarynickname": "태영왕",
+                "applicationDate": "2024-12-01",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            }
+        ]
+    },
+    {
+        "collectionNumber": "999997",
+        "collectionDescription": "풋살 클럽에서 새로운 동료를 기다립니다!",
+        "collectionTime": "2024-12-10T19:00:00",
+        "currentMember": "7",
+        "totalMember": "12",
+        "teamName": "광주타이거즈",
+        "teamCode": "gwangjutiger5",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamCity": "서울",
+        "teamLoc": "강동구",
+        "teamGender": "남성",
+        "viewCount": "180",
+        "activeStatus": "false",
+        "writtenDate": "2024-11-25",
+        "teamSize": "6vs6",
+        "stadiumId": "S231030132351965734",
+        "mercenaryMembers": []
+    },
+    {
+        "collectionNumber": "999998",
+        "collectionDescription": "여성 축구 클럽에서 멤버 모집합니다.",
+        "collectionTime": "2024-12-20T16:00:00",
+        "currentMember": "18",
+        "totalMember": "20",
+        "teamName": "피치플레이",
+        "teamCode": "pitchplay1",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamCity": "서울",
+        "teamLoc": "강남구",
+        "teamGender": "여성",
+        "viewCount": "300",
+        "activeStatus": "false",
+        "writtenDate": "2024-11-30",
+        "teamSize": "5vs5",
+        "stadiumId": "S231030135040772952",
+        "mercenaryMembers": [
+            {
+                "mercenarynickname": "태영왕",
+                "applicationDate": "2024-12-03",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            }
+        ]
+    },
+    {
+        "collectionNumber": "999999",
+        "collectionDescription": "서울에서 축구 함께하실 분 구합니다.",
+        "collectionTime": "2024-11-28T17:00:00",
+        "currentMember": "16",
+        "totalMember": "16",
+        "teamName": "축구사랑",
+        "teamCode": "soccerlove2",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamCity": "서울",
+        "teamLoc": "강서구",
+        "teamGender": "혼성",
+        "viewCount": "150",
+        "activeStatus": "true",
+        "writtenDate": "2024-11-18",
+        "teamSize": "5vs5",
+        "stadiumId": "S241021160113171621",
+        "mercenaryMembers": [
+            {
+                "mercenarynickname": "지혜짱",
+                "applicationDate": "2024-12-02",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            }
+        ]
+    },
+    {
+        "collectionNumber": "888888",
+        "collectionDescription": "초보부터 고수까지 환영합니다!",
+        "collectionTime": "2024-12-25T13:00:00",
+        "currentMember": "10",
+        "totalMember": "15",
+        "teamName": "울산번개",
+        "teamCode": "ulsanlight4",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamCity": "서울",
+        "teamLoc": "노원구",
+        "teamGender": "혼성",
+        "viewCount": "220",
+        "activeStatus": "false",
+        "writtenDate": "2024-11-22",
+        "teamSize": "6vs6",
+        "stadiumId": "S241119104108577215",
+        "mercenaryMembers": [
+            {
+                "mercenarynickname": "상훈이",
+                "applicationDate": "2024-12-01",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            },
+            {
+                "mercenarynickname": "윤지짱",
+                "applicationDate": "2024-12-02",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            },
+            {
+                "mercenarynickname": "지영이",
+                "applicationDate": "2024-12-03",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "mercenary"
+            }
+        ]
+    }
+]

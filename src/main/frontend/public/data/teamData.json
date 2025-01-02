@@ -1,0 +1,340 @@
+[
+    {
+        "teamName": "피치플레이",
+        "teamCode": "pitchplay1",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamOwner" : "pitch123",
+        "teamDescription": "피치플레이는 피치플레이 시작때부터 만들었던 팀입니다.",
+        "teamCreatedDate": "2024-01-01T10:00:00",
+        "teamLevel": [
+            "비기너"
+        ],
+        "teamDay": [
+            "월",
+            "목"
+        ],
+        "teamTime": [],
+        "teamCity": "서울",
+        "teamLoc": "동작구",
+        "teamAge": [
+            "10대",
+            "40대"
+        ],
+        "teamGender": "혼성",
+        "teamMember": [
+            {
+                "name": "박상진",
+                "role": "Manager"
+            },
+            {
+                "name": "권은지",
+                "role": "Manager"
+            },
+            {
+                "name": "백승우",
+                "role": "Manager"
+            },
+            {
+                "name": "금규환",
+                "role": "Member"
+            },
+            {
+                "name": "오재헌",
+                "role": "Member"
+            },
+            {
+                "name": "표건우",
+                "role": "Member"
+            },
+            {
+                "name": "피치플레이",
+                "role": "Manager"
+            },
+            {
+                "name": "김진혁",
+                "role": "Member"
+            },
+            {
+                "name": "최혜린",
+                "role": "Member"
+            },
+            {
+                "name": "장은지",
+                "role": "Member"
+            }
+        ],
+        "currentMember": 10,
+        "totalMember": 20,
+        "collectionTitle": "피치플레이 팀에 함께하실 분 구합니다.",
+        "pendingMembers": [
+            {
+                "pendingnickname": "태환짱",
+                "applicationDate": "2024-12-01",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "pending"
+            },
+            {
+                "pendingnickname": "수현짱",
+                "applicationDate": "2024-12-02",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "pending"
+            },
+            {
+                "pendingnickname": "정우짱",
+                "applicationDate": "2024-12-03",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "pending"
+            },
+            {
+                "pendingnickname": "지혜짱",
+                "applicationDate": "2024-12-02",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "pending"
+            }
+        ]
+    },
+    {
+        "teamName": "축구사랑",
+        "teamCode": "soccerlove2",
+        "teamOwner" : "hyunsu789",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamDescription": "축구를 사랑하는 사람들이 모인 팀입니다.",
+        "teamCreatedDate": "2024-01-02T11:30:00",
+        "teamLevel": [
+            "아마추어"
+        ],
+        "teamDay": [
+            "화",
+            "금"
+        ],
+        "teamTime": [
+            "오전"
+        ],
+        "teamCity": "부산",
+        "teamLoc": "해운대구",
+        "teamAge": [
+            "20대",
+            "30대"
+        ],
+        "teamGender": "남성",
+        "teamMember": [
+            {
+                "name": "김현우",
+                "role": "Manager"
+            },
+            {
+                "name": "이수정",
+                "role": "Member"
+            }
+        ],
+        "currentMember": 15,
+        "totalMember": 25,
+        "collectionTitle": "부산 축구팀 회원 모집!"
+    },
+    {
+        "teamName": "드리머스",
+        "teamCode": "dreamers3",
+        "teamOwner" : "daeun1122",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamDescription": "꿈을 이루기 위해 함께 뛸 멤버를 찾습니다.",
+        "teamCreatedDate": "2024-01-03T12:45:00",
+        "teamLevel": [
+            "프로"
+        ],
+        "teamDay": [
+            "토",
+            "일"
+        ],
+        "teamTime": [
+            "저녁"
+        ],
+        "teamCity": "대전",
+        "teamLoc": "중구",
+        "teamAge": [
+            "30대",
+            "50대"
+        ],
+        "teamGender": "혼성",
+        "teamMember": [
+            {
+                "name": "박상진",
+                "role": "Manager"
+            },
+            {
+                "name": "권은지",
+                "role": "Manager"
+            },
+            {
+                "name": "백승우",
+                "role": "Manager"
+            },
+            {
+                "name": "금규환",
+                "role": "Member"
+            },
+            {
+                "name": "오재헌",
+                "role": "Member"
+            },
+            {
+                "name": "표건우",
+                "role": "Member"
+            },
+            {
+                "name": "유수현",
+                "role": "Member"
+            },
+            {
+                "name": "김진혁",
+                "role": "Member"
+            },
+            {
+                "name": "최혜린",
+                "role": "Member"
+            },
+            {
+                "name": "장은지",
+                "role": "Member"
+            }
+        ],
+        "currentMember": 20,
+        "totalMember": 30,
+        "collectionTitle": "드리머스 팀원 추가 모집!",
+        "pendingMembers": [
+            {
+                "pendingnickname": "태영왕",
+                "applicationDate": "2024-12-01",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "pending"
+            },
+            {
+                "pendingnickname": "지혜짱",
+                "applicationDate": "2024-12-02",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "pending"
+            },
+            {
+                "pendingnickname": "주희짱",
+                "applicationDate": "2024-12-03",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "pending"
+            }
+        ]
+    },
+    {
+        "teamName": "울산번개",
+        "teamCode": "ulsanlight4",
+        "teamOwner" : "minsu2233",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamDescription": "빠른 속도와 전략을 자랑하는 울산번개입니다.",
+        "teamCreatedDate": "2024-01-04T13:15:00",
+        "teamLevel": [
+            "중급"
+        ],
+        "teamDay": [
+            "수",
+            "금"
+        ],
+        "teamTime": [
+            "밤"
+        ],
+        "teamCity": "울산",
+        "teamLoc": "남구",
+        "teamAge": [
+            "20대",
+            "40대"
+        ],
+        "teamGender": "여성",
+        "teamMember": [
+            {
+                "name": "강수진",
+                "role": "Manager"
+            },
+            {
+                "name": "윤소희",
+                "role": "Member"
+            }
+        ],
+        "currentMember": 18,
+        "totalMember": 28,
+        "collectionTitle": "울산번개와 함께 뛰실 분 모집!",
+        "pendingMembers": [
+            {
+                "pendingnickname": "상훈이",
+                "applicationDate": "2024-12-01",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "pending"
+            },
+            {
+                "pendingnickname": "윤지짱",
+                "applicationDate": "2024-12-02",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "pending"
+            },
+            {
+                "pendingnickname": "지영이",
+                "applicationDate": "2024-12-03",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "pending"
+            }
+        ]
+    },
+    {
+        "teamName": "광주타이거즈",
+        "teamCode": "gwangjutiger5",
+        "teamOwner" : "jimin3344",
+        "teamImg": "/src/assets/images/main_team.jpg",
+        "teamDescription": "광주의 자부심, 광주타이거즈입니다.",
+        "teamCreatedDate": "2024-01-05T14:20:00",
+        "teamLevel": [
+            "초급"
+        ],
+        "teamDay": [
+            "월",
+            "수"
+        ],
+        "teamTime": [
+            "오후"
+        ],
+        "teamCity": "광주",
+        "teamLoc": "북구",
+        "teamAge": [
+            "10대",
+            "20대"
+        ],
+        "teamGender": "혼성",
+        "teamMember": [
+            {
+                "name": "김지훈",
+                "role": "Manager"
+            },
+            {
+                "name": "이하나",
+                "role": "Member"
+            }
+        ],
+        "currentMember": 12,
+        "totalMember": 22,
+        "collectionTitle": "광주타이거즈 신입 모집!",
+        "pendingMembers": [
+            {
+                "pendingnickname": "선영이",
+                "applicationDate": "2024-12-01",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "pending"
+            },
+            {
+                "pendingnickname": "상민이",
+                "applicationDate": "2024-12-02",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "pending"
+            },
+            {
+                "pendingnickname": "민경이",
+                "applicationDate": "2024-12-03",
+                "profileImg": "/src/assets/images/main_team.jpg",
+                "applicationstatus": "pending"
+            }
+        ]
+    }
+]
