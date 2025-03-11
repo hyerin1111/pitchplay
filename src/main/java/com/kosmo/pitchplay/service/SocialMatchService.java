@@ -13,10 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -94,20 +91,26 @@ public class SocialMatchService {
         // 기존 멤버 유지
         List<Member> currentMembers = match.getCurrentMember();
 
-        // 새로운 멤버 추가
-        if (dto.getCurrentMember() != null) {
-            dto.getCurrentMember().forEach(memberDTO -> {
-                boolean alreadyExists = currentMembers.stream()
-                        .anyMatch(member -> member.getNickname().equals(memberDTO.getNickname()));
 
-                if (!alreadyExists) {
-                    currentMembers.add(Member.builder()
-                            .nickname(memberDTO.getNickname())
-                            .profileImg(memberDTO.getProfileImg())
-                            .build());
-                }
-            });
+        // 기존 참가자 목록을 Set으로 변환하여 중복 체크
+        Set<String> existingNicknames = currentMembers.stream()
+                .map(Member::getNickname)
+                .collect(Collectors.toSet());
+
+        // 새로운 참가자 추가
+        for (MemberDTO memberDTO : dto.getCurrentMember()) {
+            if (!existingNicknames.contains(memberDTO.getNickname())) {
+                currentMembers.add(Member.builder()
+                        .nickname(memberDTO.getNickname())
+                        .profileImg(memberDTO.getProfileImg())
+                        .build());
+            }
         }
+
+        // 참가자 삭제 기능 추가 (dto.getCurrentMember()에 없는 기존 멤버 삭제)
+        currentMembers.removeIf(member ->
+                dto.getCurrentMember().stream()
+                        .noneMatch(newMember -> newMember.getNickname().equals(member.getNickname())));
 
         // 최대 멤버 수 확인
         if (currentMembers.size() > match.getTotalMember()) {

@@ -22,6 +22,10 @@ public class SocialMatch {
     @Column(name = "match_number", unique = true, nullable = false)
     private Integer matchNumber; // 6자리 숫자
 
+    @Column(name = "written_date", nullable = false)
+    private LocalDateTime writtenDate;
+
+
     @ManyToOne
     @JoinColumn(name = "reservation_id", nullable = false) // 외래 키 매핑
     private Reservation reservation; // Reservation 엔티티와 관계 설정
